@@ -1,14 +1,20 @@
 import React from 'react';
 import { render } from 'react-dom';
+
+import { firebase } from './lib/firebase.prod';
+import { FirebaseContext } from './context/firebase';
+
 import App from './app';
 
 import 'normalize.css';
 import { GlobalStyles } from './global-styles';
 
 render(
-  <>
-    <GlobalStyles />
-    <App />
-  </>,
-  document.getElementById('root')
+	<>
+		<FirebaseContext.Provider value={{ firebase }}>
+			<GlobalStyles />
+			<App />
+		</FirebaseContext.Provider>
+	</>,
+	document.getElementById('root')
 );

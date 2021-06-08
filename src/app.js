@@ -40,5 +40,3 @@ export default function App() {
 		</Router>
 	);
 }
-
-// 4:36

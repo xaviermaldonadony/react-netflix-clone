@@ -8,15 +8,11 @@ export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
 		<Route
 			{...rest}
 			render={() => {
-				console.log('user', user);
-				console.log(loggedInPath);
-				console.log(rest.path);
 				if (!user) {
 					return children;
 				}
 
 				if (user) {
-					console.log('i am a user');
 					return <Redirect to={{ pathname: loggedInPath }} />;
 				}
 				return null;

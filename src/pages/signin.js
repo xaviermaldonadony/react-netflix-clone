@@ -21,7 +21,7 @@ export default function Signin() {
 		event.preventDefault();
 
 		// firebase work here
-		firebase
+		return firebase
 			.auth()
 			.signInWithEmailAndPassword(emailAddress, password)
 			.then(() => {

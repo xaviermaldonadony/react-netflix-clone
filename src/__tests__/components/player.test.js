@@ -1,0 +1,24 @@
+import { render, fireEvent } from '@testing-library/react';
+import { Player } from '../../components';
+
+describe('<Player />', () => {
+	it('renders the <Player/> with a bunny video', () => {
+		const { container, getByText, queryByTestId, debug } = render(
+			<Player>
+				<Player.Button />
+				<Player.Video src='/videos/bunny.mp4' />
+			</Player>
+		);
+		debug();
+
+		expect(queryByTestId('player')).toBeFalsy();
+		fireEvent.click(getByText('Play'));
+
+		expect(queryByTestId('player')).toBeTruthy();
+		fireEvent.click(getByText('Play'));
+
+		expect(queryByTestId('player')).toBeFalsy();
+		expect(container.firstChild).toMatchSnapshot();
+	});
+});
+// 8:09
